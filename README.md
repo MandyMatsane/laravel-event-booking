@@ -1,3 +1,15 @@
+# Event Booking Platform  
+
+This is an event booking platform with three roles: **Admin, Organiser, and Attendee (User).**  
+
+- The **Admin** creates categories.  
+- The **Organiser** creates events based on the categories defined by the Admin.  
+- The **User** can browse and book events created by the Organiser, make payments using **PayPal**, and receive a confirmation email after booking.  
+
+### Features
+- Full **CRUD operations** for managing events, categories, and users.  
+- Built with **Laravel, PHP, Tailwind CSS, and HTML**.  
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">
