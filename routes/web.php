@@ -65,5 +65,5 @@ Route::get('/paypal/checkout/{booking}', [PaymentController::class, 'checkout'])
 Route::get('/paypal/success', [PaymentController::class, 'success'])->name('paypal.success');
 Route::get('/paypal/cancel', [PaymentController::class, 'cancel'])->name('paypal.cancel');
 
-
+//all laravel authentication related routes(login/registration/password-reset)
 require __DIR__ . '/auth.php';

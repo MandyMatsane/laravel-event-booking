@@ -27,12 +27,14 @@ class BookingController extends Controller
 
     public function store(Request $request)
     {
+        //finds the event by its ID, if doesnt exist it shows 404 error
         $event = Event::findOrFail($request->event_id);
 
         if ($event->bookings()->count() >= $event->max_attendees) {
             return back()->with('error', 'This event is fully booked.');
         }
 
+        //creates new booking in the database
         $booking = Booking::create([
             'user_id' => auth()->id(),
             'event_id' => $event->id,

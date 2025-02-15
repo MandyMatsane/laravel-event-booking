@@ -13,12 +13,13 @@ class PaymentController extends Controller
 {
     public function checkout(Booking $booking)
     {
+        //retrieves the paypal credentials
         $paypal = new PayPalClient;
         $paypal->setApiCredentials(config('paypal'));
         $token = $paypal->getAccessToken();
         $paypal->setAccessToken($token);
 
-        // Retrieve ticket price
+        //Validate the tickets's price
         $ticketPrice = $booking->event->ticket_price;
 
         if (!$ticketPrice || $ticketPrice <= 0) {
@@ -58,8 +59,9 @@ class PaymentController extends Controller
         // Log the PayPal order response
         Log::info('PayPal Order Response:', $order);
 
+        //redirect to paypal approval page
         if (isset($order['links']) && is_array($order['links'])) {
-            foreach ($order['links'] as $link) {
+            foreach ($order['links'] as $link) {  
                 if ($link['rel'] === 'approve') {
                     return redirect($link['href']);
                 }
@@ -67,13 +69,13 @@ class PaymentController extends Controller
         }
 
 
-        if (isset($order['links']) && is_array($order['links'])) {
-            foreach ($order['links'] as $link) {
-                if ($link['rel'] === 'approve') {
-                    return redirect($link['href']);
-                }
-            }
-        }
+        // if (isset($order['links']) && is_array($order['links'])) {
+        //     foreach ($order['links'] as $link) {
+        //         if ($link['rel'] === 'approve') {
+        //             return redirect($link['href']);
+        //         }
+        //     }
+        // }
 
         return redirect()->route('bookings.index')->with('error', 'Something went wrong with PayPal.');
     }
