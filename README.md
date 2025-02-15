@@ -11,6 +11,84 @@ This is an event booking platform with three roles: **Admin, Organiser, and Atte
 -   Full **CRUD operations** for managing events, categories, and users.
 -   Built with **Laravel, PHP, Tailwind CSS, and HTML**.
 
+## 🚀 Technologies Used
+- **Laravel** (PHP Framework)
+- **Tailwind CSS**
+- **HTML & Blade Templates**
+- **MySQL** (Database)
+- **PayPal API** (For payments)
+
+## 📌 Installation & Setup
+
+### 1️⃣ Clone the Repository
+```sh
+git clone https://github.com/your-username/your-repo.git
+cd your-repo
+```
+
+### 2️⃣ Install Dependencies
+```sh
+composer install
+npm install
+```
+
+### 3️⃣ Set Up Environment File
+```sh
+cp .env.example .env
+```
+Then update `.env` with your database credentials:
+```env
+DB_DATABASE=your_database
+DB_USERNAME=root
+DB_PASSWORD=your_password
+```
+
+### 4️⃣ Generate App Key
+```sh
+php artisan key:generate
+```
+
+### 5️⃣ Run Migrations & Seed Database
+```sh
+php artisan migrate --seed
+```
+
+### 6️⃣ Start the Development Server
+```sh
+php artisan serve
+```
+Now visit: **`http://127.0.0.1:8000`** 🎉
+
+## 💳 Payment Integration
+This project uses **PayPal** for payments. To configure it:
+1. Create a PayPal developer account at **[developer.paypal.com](https://developer.paypal.com/)**.
+2. Get your **Client ID** and **Secret**.
+3. Add them to `.env`:
+   ```env
+   PAYPAL_CLIENT_ID=your_client_id
+   PAYPAL_SECRET=your_secret_key
+   ```
+
+## 📧 Email Notifications
+To enable email confirmations:
+1. Set up **Mailtrap** (for testing) or **Gmail SMTP**.
+2. Update your `.env`:
+   ```env
+   MAIL_MAILER=smtp
+   MAIL_HOST=smtp.mailtrap.io
+   MAIL_PORT=2525
+   MAIL_USERNAME=your_username
+   MAIL_PASSWORD=your_password
+   MAIL_ENCRYPTION=tls
+   MAIL_FROM_ADDRESS=your-email@example.com
+   MAIL_FROM_NAME="Event Booking Platform"
+   ```
+
+## 📜 License
+This project is **open-source**. Feel free to modify and improve it. 🚀
+
+
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">
